@@ -47,23 +47,7 @@ class Philosopher (threading.Thread):
     def think(self):
         time.sleep(3 + random.random()*3)
         
-    def eat(self):
-        with self.semaphore:
-            if(self.ishungry==True and self.left_fork.picked_up==False and self.right_fork.picked_up==False):
-                self.left_fork.locking(self.index)
-                time.sleep(3 + random.random()*3)
-                
-                self.right_fork.locking(self.index)
-                time.sleep(3 + random.random()*3)
-            
-                self.spaghetti -= 1
-                self.eating = True
-                time.sleep(3 + random.random()*3)
-                self.eating = False
-                self.left_fork.releasing()
-                time.sleep(3 + random.random()*3) 
-                self.right_fork.releasing()
-                self.ishungry = False
+  
                 
     # def not_hungry(self):
 
